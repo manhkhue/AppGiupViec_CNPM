@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgAnhNhanVien"
+                android:src="@drawable/chandung"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                />
+            <TextView
+                android:id="@+id/TenNGV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên người giúp việc"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"/>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</LinearLayout>
