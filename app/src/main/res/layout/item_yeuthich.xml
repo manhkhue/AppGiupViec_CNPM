@@ -4,8 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
-        android:layout_width="150dp"
-        android:layout_height="150dp">
+        android:layout_margin="10dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -15,10 +16,10 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgAnhNhanVien"
                 android:src="@drawable/chandung"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="30dp"
                 android:scaleType="centerCrop"
                 />
             <TextView
