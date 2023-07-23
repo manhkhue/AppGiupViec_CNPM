@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText editTextUsername;
-    private EditText editTextEmail;
+    private EditText editTextSDT;
     private EditText editTextPassword;
     private Button buttonRegister;
 
@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         editTextUsername = findViewById(R.id.editTextUsername);
-        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextSDT = findViewById(R.id.editTextSDT);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonRegister = findViewById(R.id.buttonRegister);
 
@@ -30,11 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String username = editTextUsername.getText().toString().trim();
-                String email = editTextEmail.getText().toString().trim();
+                String sdt = editTextSDT.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
 
-                if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                if (username.isEmpty() || sdt.isEmpty() || password.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 } else {
 

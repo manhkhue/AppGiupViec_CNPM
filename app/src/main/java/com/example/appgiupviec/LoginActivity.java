@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextLoginEmail;
+    private EditText editTextLoginSDT;
     private EditText editTextLoginPassword;
     private Button buttonRegister;
 
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextLoginEmail = findViewById(R.id.editTextLoginEmail);
+        editTextLoginSDT = findViewById(R.id.editTextLoginSDT);
         editTextLoginPassword = findViewById(R.id.editTextLoginPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonRegister = findViewById(R.id.buttonRegister);
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = editTextLoginEmail.getText().toString().trim();
+                String email = editTextLoginSDT.getText().toString().trim();
                 String password = editTextLoginPassword.getText().toString().trim();
 
 

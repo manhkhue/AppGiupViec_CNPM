@@ -62,6 +62,16 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
             super(itemView);
             iconDichVu = itemView.findViewById(R.id.iconDichVu);
             tvTenDichVu = itemView.findViewById(R.id.tenDichVu);
+
+            itemView.setOnClickListener(view -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    DichVu dichVu = arrDichVu.get(position);
+
+
+                }
+            });
+
         }
     }
 }
