@@ -19,7 +19,6 @@
         <activity
             android:name=".DatAppActivity"
             android:exported="true" >
-
         </activity>
         <activity
             android:name=".LoginActivity"
