@@ -29,6 +29,7 @@ public class YeuThichActivity extends AppCompatActivity {
     private void init(){
         rcvYeuThich = findViewById(R.id.rcvDSYeuThich);
         rcvYeuThich.setLayoutManager(new GridLayoutManager(this,2));
+        rcvYeuThich.addItemDecoration(new SpacesItemDecorations(20));
         addDSyeuThich();
         YeuThichAdapter = new DSYeuThichAdapter(this,arrNhanVienYeuThich);
         rcvYeuThich.setAdapter(YeuThichAdapter);
