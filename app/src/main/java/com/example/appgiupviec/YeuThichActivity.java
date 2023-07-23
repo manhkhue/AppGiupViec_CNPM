@@ -2,27 +2,27 @@ package com.example.appgiupviec;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.appgiupviec.Model.NhanVien;
 
 import java.util.ArrayList;
 
 import Adapter.DSYeuThichAdapter;
-import Adapter.DichVuAdapter;
 
 public class YeuThichActivity extends AppCompatActivity {
     ArrayList<NhanVien> arrNhanVienYeuThich;
     RecyclerView rcvYeuThich;
     DSYeuThichAdapter YeuThichAdapter;
+    ImageButton btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yeu_thich2);
+        setContentView(R.layout.activity_yeu_thich);
         init();
 
     }
@@ -33,6 +33,15 @@ public class YeuThichActivity extends AppCompatActivity {
         YeuThichAdapter = new DSYeuThichAdapter(this,arrNhanVienYeuThich);
         rcvYeuThich.setAdapter(YeuThichAdapter);
         YeuThichAdapter.notifyDataSetChanged();
+
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
     private void addDSyeuThich(){
         arrNhanVienYeuThich = new ArrayList<>();

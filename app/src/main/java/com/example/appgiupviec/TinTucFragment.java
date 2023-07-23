@@ -80,6 +80,7 @@ public class TinTucFragment extends Fragment {
         rcvTinTuc = view.findViewById(R.id.RcvTinTuc);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvTinTuc.setLayoutManager(layoutManager);
+        rcvTinTuc.addItemDecoration(new SpacesItemDecorations(30));
         addTinTuc();
         TinTucAdapter adapter = new TinTucAdapter(getContext(),arrTinTuc);
         rcvTinTuc.setAdapter(adapter);

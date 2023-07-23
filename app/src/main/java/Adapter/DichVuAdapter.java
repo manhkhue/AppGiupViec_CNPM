@@ -1,6 +1,7 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.appgiupviec.DatAppActivity;
 import com.example.appgiupviec.Model.DichVu;
 import com.example.appgiupviec.R;
 
@@ -30,7 +32,19 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dichvu,parent,false);
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        viewHolder.iconDichVu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = viewHolder.getAdapterPosition();
+                if(position!=RecyclerView.NO_POSITION){
+                    DichVu dichVu = arrDichVu.get(position);
+                    Intent i = new Intent(view.getContext(), DatAppActivity.class);
+                    view.getContext().startActivity(i);
+                }
+            }
+        });
+        return viewHolder;
     }
 
     @Override
@@ -39,13 +53,6 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
         if(arrDichVu.size()>0){
             holder.tvTenDichVu.setText(dichVu.getTenDichVu());
             Glide.with(context).load(dichVu.getImageUrl()).into(holder.iconDichVu);
-
-            holder.iconDichVu.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context,holder.tvTenDichVu.getText(),Toast.LENGTH_SHORT).show();
-                }
-            });
         }
 
     }
@@ -67,8 +74,6 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     DichVu dichVu = arrDichVu.get(position);
-
-
                 }
             });
 

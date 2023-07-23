@@ -7,7 +7,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -113,6 +115,7 @@ public class ThongBaoFragment extends Fragment {
     private void SetUp(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvThongBao.setLayoutManager(linearLayoutManager);
+        rcvThongBao.addItemDecoration(new SpacesItemDecorations(20));
         thongBaoAdapter = new ThongBaoAdapter(getContext(),ThongBaos);
         rcvThongBao.setAdapter(thongBaoAdapter);
     }
@@ -132,21 +135,12 @@ public class ThongBaoFragment extends Fragment {
 
     private void addThongBao(){
         ThongBaos = new ArrayList<>();
-        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
-                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
-                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
-                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
-        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
-                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
-                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
-                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
-        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
-                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
-                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
-                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
-        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
-                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
-                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
-                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+        for (int i=0;i<10;i++)
+        {
+            ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
+                    "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
+                    "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
+                    "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+        }
     }
 }

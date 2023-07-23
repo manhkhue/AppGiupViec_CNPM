@@ -69,20 +69,23 @@ public class HomeFragment extends Fragment {
     private ArrayList<String> listImages = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView RcvDichVu;
-    ImageButton btnAnhDichVu;
-    TextView tenDichVu;
     DichVuAdapter dichVuAdapter;
     ArrayList<DichVu> arrDichVu;
     Timer timer;
     TimerTask timerTask;
     int position;
+    LinearLayoutManager layoutManager;
 
     @Override
     public void onResume() {
         super.onResume();
         AutoScrollBanner();
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        StopAutoScrollBanner();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,12 +108,13 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getImages();
         recyclerView = view.findViewById(R.id.horizontal_RCV);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
         BannerAdapter adapter = new BannerAdapter(getContext(),listImages);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        //auto Scroll
         if(listImages!=null){
             position = Integer.MAX_VALUE/2;
             recyclerView.scrollToPosition(position);
@@ -119,13 +123,27 @@ public class HomeFragment extends Fragment {
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
         recyclerView.smoothScrollBy(5,0);
-
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState==1){
+                    StopAutoScrollBanner();
+                }
+                else if(newState==0){
+                    position = layoutManager.findFirstCompletelyVisibleItemPosition();
+                    AutoScrollBanner();
+                }
+            }
+        });
+        //
         RcvDichVu = view.findViewById(R.id.RcvDichVu);
         RcvDichVu.setLayoutManager(new GridLayoutManager(getContext(),4));
         addDichVu();
         dichVuAdapter = new DichVuAdapter(getContext(),arrDichVu);
         RcvDichVu.setAdapter(dichVuAdapter);
         dichVuAdapter.notifyDataSetChanged();
+        onClick();
     }
 
     private void AutoScrollBanner(){
@@ -137,7 +155,7 @@ public class HomeFragment extends Fragment {
                     if(position == Integer.MAX_VALUE){
                         position = Integer.MAX_VALUE/2;
                         recyclerView.scrollToPosition(position);
-                        recyclerView.smoothScrollBy(5,0);
+                        recyclerView.smoothScrollBy(2,0);
                     }
                     else{
                         position++;
@@ -148,6 +166,16 @@ public class HomeFragment extends Fragment {
             timer.schedule(timerTask,5000,5000);
         }
     }
+    private void StopAutoScrollBanner(){
+        if(timer!=null && timerTask == null){
+            timerTask.cancel();
+            timer.cancel();
+            timer = null;
+            timerTask = null;
+            position = layoutManager.findFirstCompletelyVisibleItemPosition();
+        }
+    }
+
 
 
     private void addDichVu(){
@@ -156,11 +184,17 @@ public class HomeFragment extends Fragment {
         arrDichVu.add(new DichVu("Quét nhà","https://img.icons8.com/?size=512&id=7188&format=png"));
         arrDichVu.add(new DichVu("Lau Nhà","https://img.icons8.com/?size=512&id=7188&format=png"));
         arrDichVu.add(new DichVu("Trông trẻ","https://img.icons8.com/?size=512&id=7188&format=png"));
-
-
-
     }
 
+    private void onClick(){
+        RcvDichVu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),DatAppActivity.class);
+                startActivity(i);
+            }
+        });
+    }
 
     private void getImages(){
         listImages.add("https://inanaz.com.vn/wp-content/uploads/2023/03/mau-banner-quang-cao-dep.jpg");
