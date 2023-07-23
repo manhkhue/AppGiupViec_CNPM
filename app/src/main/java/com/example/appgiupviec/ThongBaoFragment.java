@@ -1,12 +1,30 @@
 package com.example.appgiupviec;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.appgiupviec.Model.ThongBao;
+
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.zip.Inflater;
+
+import Adapter.ThongBaoAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +64,11 @@ public class ThongBaoFragment extends Fragment {
         return fragment;
     }
 
+    RecyclerView rcvThongBao;
+    ArrayList<ThongBao> ThongBaos;
+    ConstraintLayout KhongThongBao;
+    ImageButton XoaThongBao;
+    ThongBaoAdapter thongBaoAdapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +76,7 @@ public class ThongBaoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -60,5 +84,69 @@ public class ThongBaoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_thong_bao, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addThongBao();
+
+        //Ánh Xạ
+        rcvThongBao = view.findViewById(R.id.rcvThongBao);
+        KhongThongBao = view.findViewById(R.id.KhongThongBao);
+        XoaThongBao = view.findViewById(R.id.XoaThongBao);
+        //
+
+        //Set manager
+        SetUp();
+        //
+        XuLy();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        thongBaoAdapter.notifyDataSetChanged();
+    }
+
+    private void SetUp(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        rcvThongBao.setLayoutManager(linearLayoutManager);
+        thongBaoAdapter = new ThongBaoAdapter(getContext(),ThongBaos);
+        rcvThongBao.setAdapter(thongBaoAdapter);
+    }
+
+    private void XuLy(){
+        XoaThongBao.setOnClickListener(v -> {
+            ThongBaos.clear();
+            thongBaoAdapter.notifyDataSetChanged();
+            if(ThongBaos.isEmpty()){
+                rcvThongBao.setVisibility(View.INVISIBLE);
+                KhongThongBao.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+
+
+    private void addThongBao(){
+        ThongBaos = new ArrayList<>();
+        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
+                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
+                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
+                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
+                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
+                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
+                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
+                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
+                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
+                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+        ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
+                "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
+                "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
+                "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
     }
 }

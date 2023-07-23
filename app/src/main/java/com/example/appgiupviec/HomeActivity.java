@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.appgiupviec.Model.ThongBao;
 import com.example.appgiupviec.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,8 +18,6 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,4 +56,6 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout,fragment);
         fragmentTransaction.commit();
     }
+
+
 }
