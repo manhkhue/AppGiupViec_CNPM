@@ -72,7 +72,7 @@
                 android:id="@+id/Ngay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chọn ngày giờ làm việc:"
+                android:text="Chọn ngày, giờ làm việc:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_below="@+id/ThoiGian" />
@@ -136,7 +136,7 @@
                     android:id="@+id/GhiChu11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Ghi chú" />
+                    android:hint="Bạn có yêu cầu gì thêm, hãy nhập ở đây nhé" />
             </LinearLayout>
 
             <LinearLayout
