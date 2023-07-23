@@ -72,7 +72,7 @@
                 android:id="@+id/Ngay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chọn ngày làm"
+                android:text="Chọn ngày giờ làm việc:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_below="@+id/ThoiGian" />
@@ -91,25 +91,28 @@
                     android:textColor="@color/black"
                     android:onClick="Day"
                     android:textSize="15sp"
-                    android:background="@drawable/border_login" />
+                    android:background="@drawable/border_login"
+                    android:layout_marginLeft="50dp"/>
+
+                <Button
+                    android:id="@+id/Hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn giờ"
+                    android:textColor="@color/black"
+                    android:onClick="Hours"
+                    android:textSize="15sp"
+                    android:background="@drawable/border_login"
+                    android:layout_marginLeft="100dp"/>
 
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/Gio"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Giờ làm việc:"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:layout_below="@+id/Ngay2" />
 
             <LinearLayout
                 android:id="@+id/GhiChu"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/Gio"
+                android:layout_below="@+id/Ngay2"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp">
 
