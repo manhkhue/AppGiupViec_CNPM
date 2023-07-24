@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,6 +69,7 @@ public class AccountFragment extends Fragment {
     }
 
     ConstraintLayout Favorite;
+    TextView edtChinhSuaHS;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -76,6 +78,14 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),YeuThichActivity.class);
+                startActivity(i);
+            }
+        });
+        edtChinhSuaHS = view.findViewById(R.id.edtChinhSuaHS);
+        edtChinhSuaHS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),CT_AccountActivity.class);
                 startActivity(i);
             }
         });
