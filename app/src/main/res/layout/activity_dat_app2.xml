@@ -1,75 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DatApp2Activity">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarlayout_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/img_BackDH2"
-                    android:layout_width="30dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/baseline_keyboard_backspace_24" />
-
-                <TextView
-                    android:id="@+id/tt_dia_chi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toEndOf="@id/img_BackDH2"
-                    android:layout_toRightOf="@id/img_BackDH2"
-                    android:gravity="center"
-                    android:text="Địa chỉ:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <TextView
-        android:id="@+id/tvViTriLamViec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vị trí làm việc"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/appbarlayout_main"
+    <ImageView
+        android:id="@+id/img_BackDH2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_keyboard_backspace_24"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewViTriLamViec"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/tvViTriLamViec"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvThongTinCongViec"
@@ -78,74 +21,120 @@
         android:text="Thông tin công việc"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewViTriLamViec"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below="@id/img_BackDH2"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewThongTinCongViec"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/tvThongTinCongViec"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp" />
+    <!-- Bảng thông tin thời lượng đã chọn từ DatAppActivity -->
+    <TextView
+        android:id="@+id/tvThoiLuongTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thời lượng đã chọn:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvThongTinCongViec"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
 
     <TextView
-        android:id="@+id/tvPhuongThucThanhToan"
+        android:id="@+id/tvThoiLuongValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phương thức thanh toán"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewThongTinCongViec"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_below="@id/tvThoiLuongTitle"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
-
-
-    <!-- Group RadioButtons để chỉ chọn một trong hai -->
-    <RadioGroup
-        android:id="@+id/radioGroupPhuongThucThanhToan"
+    <!-- Bảng thông tin ngày và giờ làm việc đã chọn từ DatApp1Activity -->
+    <TextView
+        android:id="@+id/tvNgayLamViecTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvPhuongThucThanhToan"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Ngày làm việc:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvThoiLuongValue"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/tvNgayLamViecValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_below="@id/tvNgayLamViecTitle"
         android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp">
+        android:layout_marginStart="16dp" />
 
-        <!-- Liên kết RadioButton với Group -->
-        <RadioButton
-            android:id="@+id/rbThanhToanTienMat1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thanh toán tiền mặt" />
+    <TextView
+        android:id="@+id/tvGioLamViecTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giờ làm việc:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvNgayLamViecValue"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
 
-        <RadioButton
-            android:id="@+id/rbChuyenKhoan1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chuyển khoản" />
+    <TextView
+        android:id="@+id/tvGioLamViecValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_below="@id/tvGioLamViecTitle"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp" />
 
-    </RadioGroup>
+    <!-- Bảng thông tin Ghi chú -->
+    <TextView
+        android:id="@+id/tvGhiChuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ghi chú:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvGioLamViecValue"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
 
+    <TextView
+        android:id="@+id/tvGhiChuValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_below="@id/tvGhiChuTitle"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp" />
 
+    <!-- Nút Đăng việc -->
     <Button
         android:id="@+id/btnDangViec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="184dp"
-        android:background="@drawable/border_login"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
         android:text="Đăng việc"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewThongTinCongViec" />
+        android:background="@drawable/border_login"
+        android:layout_below="@id/tvGhiChuValue"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- ScrollView để cho phép cuộn nội dung nếu kích thước màn hình không đủ -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDangViec">
+
+        <!-- Các phần thông tin còn lại từ DatApp1Activity có thể được thêm vào đây -->
+        <!-- Ví dụ: Bảng thông tin khác, nút hoặc bất kỳ nội dung nào khác -->
+
+    </ScrollView>
+
+</RelativeLayout>
