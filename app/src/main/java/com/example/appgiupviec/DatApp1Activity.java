@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.appgiupviec.R;
 
 import java.util.Calendar;
 
@@ -20,9 +23,9 @@ public class DatApp1Activity extends AppCompatActivity {
 
     private ImageView imgBack;
     private Button buttonTiepTuc;
-
     private Button Day;
     private Button Hours;
+    private EditText ghiChu11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class DatApp1Activity extends AppCompatActivity {
         buttonTiepTuc = findViewById(R.id.buttontieptuc1);
         Day = findViewById(R.id.Day);
         Hours = findViewById(R.id.Hours);
-
+        ghiChu11 = findViewById(R.id.GhiChu11); // Ánh xạ EditText ghiChu11
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,48 +45,75 @@ public class DatApp1Activity extends AppCompatActivity {
             }
         });
 
+        Day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+
+        Hours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+
         buttonTiepTuc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(DatApp1Activity.this, DatApp2Activity.class);
-                startActivity(intent);
+                Intent intent = getIntent();
+                String selectedNgay = Day.getText().toString();
+                String selectedGio = Hours.getText().toString();
+                String ghiChu = ghiChu11.getText().toString();
+                String selectedThoiLuong = intent.getStringExtra("THOI_LUONG_CONG_VIEC");
 
+
+                startDatApp2Activity(selectedThoiLuong, selectedNgay, selectedGio, ghiChu);
+
+            }
+
+
+            private void startDatApp2Activity(String thoiLuong, String ngayLamViec, String gioLamViec, String ghiChu) {
+                Intent intent = new Intent(DatApp1Activity.this, DatApp2Activity.class);
+                intent.putExtra("THOI_LUONG_CONG_VIEC", thoiLuong);
+                intent.putExtra("NGAY_DA_CHON", ngayLamViec);
+                intent.putExtra("GIO_DA_CHON", gioLamViec);
+                intent.putExtra("GHI_CHU", ghiChu);
+                startActivity(intent);
             }
         });
     }
-    public void Day(View view){
-        Calendar calendar = Calendar.getInstance();
 
+    private void showDatePickerDialog() {
+        Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayofmonth) {
-                Toast.makeText(DatApp1Activity.this, String.format("Selected Date: %d/%d/%d", day, month, year), Toast.LENGTH_SHORT).show();
-
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                String selectedDate = String.format("%d/%d/%d", dayOfMonth, month + 1, year);
+                Day.setText(selectedDate);
             }
-        },year, month, year );
+        }, year, month, day);
         datePickerDialog.show();
-
     }
 
-    public void Hours(View view){
+    private void showTimePickerDialog() {
         Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker view, int hourOfDAY, int minute) {
-                Toast.makeText(DatApp1Activity.this, String.format("Selected Time: %d/%d",hourOfDAY, minute), Toast.LENGTH_SHORT).show();
-
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                String selectedTime = String.format("%02d:%02d", hourOfDay, minute);
+                Hours.setText(selectedTime);
             }
         }, hour, minute, true);
         timePickerDialog.show();
-
     }
-
-
 }
