@@ -23,6 +23,9 @@
             android:name=".DatApp1Activity"
             android:exported="false" />
         <activity
+            android:name=".DatApp2Activity"
+            android:exported="false" />
+        <activity
             android:name=".DatAppActivity"
             android:exported="true" />
         <activity

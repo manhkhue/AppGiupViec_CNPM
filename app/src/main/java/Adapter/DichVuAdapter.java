@@ -42,7 +42,7 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
                 if(position!=RecyclerView.NO_POSITION){
                     DichVu dichVu = arrDichVu.get(position);
                     Bundle bundle =new Bundle();
-                    bundle.putString("id", dichVu.getMaDichVu());
+                    bundle.putString("TenDichVu", dichVu.getTenDichVu());
                     bundle.putInt("GiaCa",dichVu.getDonGia());
                     Intent i = new Intent(view.getContext(), DatAppActivity.class);
                     i.putExtra("data",bundle);

@@ -14,7 +14,7 @@ public class DatApp2Activity extends AppCompatActivity {
 
     private ImageView imgBack;
     private Button btnDangViec;
-    private TextView tvThoiLuongValue, tvNgayLamViecValue, tvGioLamViecValue;
+    private TextView tvThoiLuongValue, tvNgayLamViecValue, tvGioLamViecValue, tvGhiChuValue, tvTenDichVu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,24 +22,23 @@ public class DatApp2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dat_app2);
         imgBack = findViewById(R.id.img_BackDH2);
         btnDangViec = findViewById(R.id.btnDangViec);
+        tvThoiLuongValue = findViewById(R.id.tvThoiLuongTitle);
+        tvNgayLamViecValue = findViewById(R.id.tvNgayLamViecTitle);
+        tvGioLamViecValue = findViewById(R.id.tvGioLamViecTitle);
+        tvGhiChuValue = findViewById(R.id.tvGhiChuTitle);
+        tvTenDichVu = findViewById(R.id.tvTenCongViec);
+        Bundle bundle = getIntent().getBundleExtra("data");
+        String tenDichVu = bundle.getString("TenDichVu");
+        String selectedThoiLuong = bundle.getString("ThoiLuong");
+        String ngayLamViec = bundle.getString("NgayLamViec");
+        String gioLamViec = bundle.getString("GioLamViec");
+        String ghiChu = bundle.getString("GhiChu");
 
-        tvThoiLuongValue = findViewById(R.id.tvThoiLuongValue);
-        tvNgayLamViecValue = findViewById(R.id.tvNgayLamViecValue);
-        tvGioLamViecValue = findViewById(R.id.tvGioLamViecValue);
-        TextView tvGhiChuValue = findViewById(R.id.tvGhiChuValue);
-
-
-        Intent intent = getIntent();
-        String selectedThoiLuong = intent.getStringExtra("THOI_LUONG_CONG_VIEC");
-        String ngayLamViec = intent.getStringExtra("NGAY_DA_CHON");
-        String gioLamViec = intent.getStringExtra("GIO_DA_CHON");
-        String ghiChu = intent.getStringExtra("GHI_CHU");
-
-
-        tvThoiLuongValue.setText(selectedThoiLuong);
-        tvNgayLamViecValue.setText(ngayLamViec);
-        tvGioLamViecValue.setText(gioLamViec);
-        tvGhiChuValue.setText(ghiChu);
+        tvTenDichVu.setText("Tên công việc: "+tenDichVu);
+        tvThoiLuongValue.setText("Thời lượng: "+selectedThoiLuong);
+        tvNgayLamViecValue.setText("Ngày làm việc: "+ngayLamViec);
+        tvGioLamViecValue.setText("Giờ làm việc: "+gioLamViec);
+        tvGhiChuValue.setText("Ghi chú: "+ ghiChu);
 
         btnDangViec.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +46,6 @@ public class DatApp2Activity extends AppCompatActivity {
                 Toast.makeText(DatApp2Activity.this, "Đăng việc thành công", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DatApp2Activity.this, HomeActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
