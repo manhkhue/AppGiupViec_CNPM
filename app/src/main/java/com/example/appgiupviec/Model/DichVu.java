@@ -1,5 +1,9 @@
 package com.example.appgiupviec.Model;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class DichVu {
     private String TenDichVu;
     private String MaDichVu;
@@ -7,6 +11,13 @@ public class DichVu {
     private String ImageUrl;
     private String DonGia;
 
+    public DichVu(JSONObject object)throws JSONException{
+        MaDichVu = object.getString("id");
+        TenDichVu = object.getString("tenDichVu");
+        Mota = object.getString("MoTa");
+        ImageUrl = object.getString("linkAnh");
+        DonGia = object.getString("DonGia");
+    }
     public DichVu(String tenDichVu, String imageUrl) {
         TenDichVu = tenDichVu;
         ImageUrl = imageUrl;

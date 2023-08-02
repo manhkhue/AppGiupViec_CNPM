@@ -44,7 +44,6 @@ public class DatApp2Activity extends AppCompatActivity {
         btnDangViec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(DatApp2Activity.this, "Đăng việc thành công", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DatApp2Activity.this, HomeActivity.class);
                 startActivity(intent);
