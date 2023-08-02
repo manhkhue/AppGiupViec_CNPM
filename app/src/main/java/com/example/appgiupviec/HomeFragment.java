@@ -83,6 +83,8 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
     int position;
     LinearLayoutManager layoutManager;
 
+
+    GridView gdvDS;
     @Override
     public void onResume() {
         super.onResume();
@@ -147,12 +149,8 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
         RcvDichVu = view.findViewById(R.id.RcvDichVu);
         RcvDichVu.setLayoutManager(new GridLayoutManager(getContext(),4));
         arrDichVu = new ArrayList<>();
-//        addDichVu();
-//        dichVuAdapter = new DichVuAdapter(getContext(),arrDichVu);
-//        RcvDichVu.setAdapter(dichVuAdapter);
-//        dichVuAdapter.notifyDataSetChanged();
-        new ApiGetDSDichVu(this).execute();
         onClick();
+        new ApiGetDSDichVu(this).execute();
     }
 
     private void AutoScrollBanner(){
@@ -185,24 +183,14 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
         }
     }
 
-
-
-//    private void addDichVu(){
-//        arrDichVu = new ArrayList<>();
-//        arrDichVu.add(new DichVu("Dọn dẹp nhà","https://img.icons8.com/?size=512&id=7188&format=png"));
-//        arrDichVu.add(new DichVu("Quét nhà","https://img.icons8.com/?size=512&id=7188&format=png"));
-//        arrDichVu.add(new DichVu("Lau Nhà","https://img.icons8.com/?size=512&id=7188&format=png"));
-//        arrDichVu.add(new DichVu("Trông trẻ","https://img.icons8.com/?size=512&id=7188&format=png"));
-//    }
-
     private void onClick(){
-        RcvDichVu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),DatAppActivity.class);
-                startActivity(i);
-            }
-        });
+//        RcvDichVu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(),DatAppActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     private void getImages(){

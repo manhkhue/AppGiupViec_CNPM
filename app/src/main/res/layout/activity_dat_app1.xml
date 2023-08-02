@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="10dp">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout_main"
@@ -26,18 +27,16 @@
                     android:id="@+id/img_BackDH"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/baseline_keyboard_backspace_24" />
 
                 <TextView
                     android:id="@+id/tt_dia_chi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toEndOf="@id/img_BackDH"
                     android:layout_toRightOf="@id/img_BackDH"
-                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
                     android:text="Địa chỉ:"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -114,7 +113,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/Ngay2"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp">
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:id="@+id/GhiChu1"
@@ -136,7 +135,8 @@
                     android:id="@+id/GhiChu11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Bạn có yêu cầu gì thêm, hãy nhập ở đây nhé" />
+                    android:hint="Bạn có yêu cầu gì thêm, hãy nhập ở đây nhé"
+                    android:gravity="top"/>
             </LinearLayout>
 
             <LinearLayout

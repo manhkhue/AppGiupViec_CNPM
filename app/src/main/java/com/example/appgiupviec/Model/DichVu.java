@@ -9,14 +9,14 @@ public class DichVu {
     private String MaDichVu;
     private String Mota;
     private String ImageUrl;
-    private String DonGia;
+    private int DonGia;
 
     public DichVu(JSONObject object)throws JSONException{
         MaDichVu = object.getString("id");
         TenDichVu = object.getString("tenDichVu");
         Mota = object.getString("MoTa");
         ImageUrl = object.getString("linkAnh");
-        DonGia = object.getString("DonGia");
+        DonGia = object.getInt("DonGia");
     }
     public DichVu(String tenDichVu, String imageUrl) {
         TenDichVu = tenDichVu;
@@ -55,11 +55,11 @@ public class DichVu {
         ImageUrl = imageUrl;
     }
 
-    public String getDonGia() {
+    public int getDonGia() {
         return DonGia;
     }
 
-    public void setDonGia(String donGia) {
+    public void setDonGia(int donGia) {
         DonGia = donGia;
     }
 }

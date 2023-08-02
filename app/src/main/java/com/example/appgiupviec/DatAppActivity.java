@@ -27,33 +27,43 @@ public class DatAppActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_app);
+        AnhXa();
+        init();
+        setClick();
+        setUP();
 
+    }
+    private void init(){
+        Bundle bundle = getIntent().getBundleExtra("data");
+        int DonGia = bundle.getInt("GiaCa");
+        thoiLuongList = new ArrayList<>();
+        thoiLuongList.add(new ThoiLuong("1 giờ: 1 phòng(30m2)",DonGia*1 + " VND"));
+        thoiLuongList.add(new ThoiLuong("2 giờ: 2 phòng(50m2)",DonGia*2 + " VND"));
+        thoiLuongList.add(new ThoiLuong("3 giờ: 3 phòng(70m2)",DonGia*3 + " VND"));
+    }
+
+    private void AnhXa(){
         imgBack = findViewById(R.id.img_quaylai);
         recyclerViewDienTich = findViewById(R.id.recyclerViewDienTich);
+    }
 
-        thoiLuongList = new ArrayList<>();
-        thoiLuongList.add(new ThoiLuong("1 giờ: 1 phòng(30m2)"));
-        thoiLuongList.add(new ThoiLuong("2 giờ: 2 phòng(50m2)"));
-        thoiLuongList.add(new ThoiLuong("3 giờ: 3 phòng(70m2)"));
-
+    private void setUP(){
         ThoiLuongAdapter adapter = new ThoiLuongAdapter(thoiLuongList, new ThoiLuongAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ThoiLuong thoiLuong) {
                 selectedThoiLuong = thoiLuong.getThoiLuong();
             }
         });
-
         recyclerViewDienTich.setAdapter(adapter);
         recyclerViewDienTich.setLayoutManager(new LinearLayoutManager(this));
-
+    }
+    private void setClick(){
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
-
-
         findViewById(R.id.buttontieptuc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,5 +1,6 @@
 package Adapter;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +37,10 @@ public class ThoiLuongAdapter extends RecyclerView.Adapter<ThoiLuongAdapter.Thoi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ThoiLuongViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ThoiLuongViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ThoiLuong thoiLuong = thoiLuongList.get(position);
         holder.txtThoiLuong.setText(thoiLuong.getThoiLuong());
-
+        holder.tvTongGia.setText(thoiLuong.getTongGia());
         holder.txtThoiLuong.setTypeface(null, position == selectedItemPosition ? Typeface.BOLD : Typeface.NORMAL);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +63,11 @@ public class ThoiLuongAdapter extends RecyclerView.Adapter<ThoiLuongAdapter.Thoi
 
     public class ThoiLuongViewHolder extends RecyclerView.ViewHolder {
         TextView txtThoiLuong;
-
+        TextView tvTongGia;
         public ThoiLuongViewHolder(@NonNull View itemView) {
             super(itemView);
             txtThoiLuong = itemView.findViewById(R.id.tvThoiLuong);
+            tvTongGia = itemView.findViewById(R.id.tvTongGia);
         }
     }
 }

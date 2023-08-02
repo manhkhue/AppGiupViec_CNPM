@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="10dp"
     android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -25,18 +26,16 @@
                     android:id="@+id/img_quaylai"
                     android:layout_width="70px"
                     android:layout_height="70px"
-                    android:layout_marginTop="20px"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/baseline_keyboard_backspace_24"/>
 
                 <TextView
                     android:id="@+id/tt_dia_chi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_toEndOf="@id/img_quaylai"
                     android:layout_toRightOf="@id/img_quaylai"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:text="Địa chỉ:"
                     android:textColor="@color/black"
@@ -69,13 +68,12 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp" />
+                android:layout_marginVertical="16dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewDienTich"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/ThoiLuong"
                 app:layout_constraintStart_toStartOf="parent"

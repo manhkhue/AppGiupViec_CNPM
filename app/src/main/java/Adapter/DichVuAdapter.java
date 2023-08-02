@@ -2,6 +2,7 @@ package Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.appgiupviec.DatAppActivity;
 import com.example.appgiupviec.Model.DichVu;
 import com.example.appgiupviec.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder> {
@@ -39,7 +41,11 @@ public class DichVuAdapter extends RecyclerView.Adapter<DichVuAdapter.ViewHolder
                 int position = viewHolder.getAdapterPosition();
                 if(position!=RecyclerView.NO_POSITION){
                     DichVu dichVu = arrDichVu.get(position);
+                    Bundle bundle =new Bundle();
+                    bundle.putString("id", dichVu.getMaDichVu());
+                    bundle.putInt("GiaCa",dichVu.getDonGia());
                     Intent i = new Intent(view.getContext(), DatAppActivity.class);
+                    i.putExtra("data",bundle);
                     view.getContext().startActivity(i);
                 }
             }
