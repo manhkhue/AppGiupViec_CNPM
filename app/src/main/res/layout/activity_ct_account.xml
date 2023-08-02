@@ -70,10 +70,20 @@
             android:textSize="20dp"
             android:textStyle="bold"/>
         <TextView
+            android:id="@+id/sdtHoSo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Số điện thoại"
             app:layout_constraintTop_toBottomOf="@id/tvTenUser"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/diaChiHoSo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ"
+            app:layout_constraintTop_toBottomOf="@id/sdtHoSo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="5dp"/>

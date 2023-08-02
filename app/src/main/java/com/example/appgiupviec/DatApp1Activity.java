@@ -31,59 +31,11 @@ public class DatApp1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dat_app1);
-
-        imgBack = findViewById(R.id.img_BackDH);
-        buttonTiepTuc = findViewById(R.id.buttontieptuc1);
-        Day = findViewById(R.id.Day);
-        Hours = findViewById(R.id.Hours);
-        ghiChu11 = findViewById(R.id.GhiChu11); // Ánh xạ EditText ghiChu11
-
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
-        Day.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDatePickerDialog();
-            }
-        });
-
-        Hours.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showTimePickerDialog();
-            }
-        });
-
-        buttonTiepTuc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = getIntent();
-                String selectedNgay = Day.getText().toString();
-                String selectedGio = Hours.getText().toString();
-                String ghiChu = ghiChu11.getText().toString();
-                String selectedThoiLuong = intent.getStringExtra("THOI_LUONG_CONG_VIEC");
+        AnhXa();
+        setClick();
 
 
-                startDatApp2Activity(selectedThoiLuong, selectedNgay, selectedGio, ghiChu);
 
-            }
-
-
-            private void startDatApp2Activity(String thoiLuong, String ngayLamViec, String gioLamViec, String ghiChu) {
-                Intent intent = new Intent(DatApp1Activity.this, DatApp2Activity.class);
-                intent.putExtra("THOI_LUONG_CONG_VIEC", thoiLuong);
-                intent.putExtra("NGAY_DA_CHON", ngayLamViec);
-                intent.putExtra("GIO_DA_CHON", gioLamViec);
-                intent.putExtra("GHI_CHU", ghiChu);
-                startActivity(intent);
-            }
-        });
     }
 
     private void showDatePickerDialog() {
@@ -115,5 +67,69 @@ public class DatApp1Activity extends AppCompatActivity {
             }
         }, hour, minute, true);
         timePickerDialog.show();
+    }
+
+    private void Init(){
+
+    }
+
+    private void AnhXa(){
+        imgBack = findViewById(R.id.img_BackDH);
+        buttonTiepTuc = findViewById(R.id.buttontieptuc1);
+        Day = findViewById(R.id.Day);
+        Hours = findViewById(R.id.Hours);
+        ghiChu11 = findViewById(R.id.GhiChu11);
+    }
+
+    private void setClick(){
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        Day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+
+        Hours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+
+        buttonTiepTuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Bundle bundle = getIntent().getBundleExtra("data");
+                String tenDichVu = bundle.getString("tenDichVu");
+                String thoiluong = bundle.getString("ThoiLuong");
+                String selectedNgay = Day.getText().toString();
+                String selectedGio = Hours.getText().toString();
+                String ghiChu = ghiChu11.getText().toString();
+                startDatApp2Activity(tenDichVu,thoiluong, selectedNgay, selectedGio, ghiChu);
+
+            }
+
+
+            private void startDatApp2Activity(String tenDichVu,String thoiLuong, String ngayLamViec, String gioLamViec, String ghiChu) {
+                Bundle bundle = new Bundle();
+                bundle.putString("TenDichVu",tenDichVu);
+                bundle.putString("ThoiLuong",thoiLuong);
+                bundle.putString("NgayLamViec",ngayLamViec);
+                bundle.putString("GioLamViec",gioLamViec);
+                bundle.putString("GhiChu",ghiChu);
+                Intent intent = new Intent(DatApp1Activity.this, DatApp2Activity.class);
+//
+                intent.putExtra("data",bundle);
+                startActivity(intent);
+            }
+        });
     }
 }

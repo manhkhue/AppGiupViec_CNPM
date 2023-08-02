@@ -51,16 +51,18 @@
         android:layout_marginHorizontal="10dp"
         >
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Họ và Tên"
             android:layout_marginBottom="5dp"></TextView>
         <EditText
+            android:id="@+id/edtHoTen"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/bg_edit"
             android:paddingHorizontal="5dp"
-            android:text="Tên"/>
+          />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/lnSoDienThoai"
@@ -77,12 +79,13 @@
             android:text="Số điện thoại"
             android:layout_marginBottom="5dp"></TextView>
         <EditText
+            android:id="@+id/edtSoDienThoai"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/bg_edit"
             android:paddingHorizontal="5dp"
             android:inputType="number"
-            android:text="sdt"/>
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,12 +100,14 @@
             android:layout_height="wrap_content"
             android:text="Địa chỉ"
             android:layout_marginBottom="5dp"></TextView>
+
         <EditText
+            android:id="@+id/edtDiaChi"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@drawable/bg_edit"
             android:paddingHorizontal="5dp"
-            android:text="828 Sư Vạn Hạnh"/>
+             />
     </LinearLayout>
 
     <Button

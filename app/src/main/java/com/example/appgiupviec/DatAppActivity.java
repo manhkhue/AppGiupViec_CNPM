@@ -22,6 +22,7 @@ public class DatAppActivity extends AppCompatActivity {
     private RecyclerView recyclerViewDienTich;
     private ArrayList<ThoiLuong> thoiLuongList;
     private String selectedThoiLuong;
+    private String tenDichVu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class DatAppActivity extends AppCompatActivity {
     private void init(){
         Bundle bundle = getIntent().getBundleExtra("data");
         int DonGia = bundle.getInt("GiaCa");
+        tenDichVu = bundle.getString("TenDichVu");
         thoiLuongList = new ArrayList<>();
         thoiLuongList.add(new ThoiLuong("1 giờ: 1 phòng(30m2)",DonGia*1 + " VND"));
         thoiLuongList.add(new ThoiLuong("2 giờ: 2 phòng(50m2)",DonGia*2 + " VND"));
@@ -69,7 +71,10 @@ public class DatAppActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (selectedThoiLuong != null) {
                     Intent intent = new Intent(DatAppActivity.this, DatApp1Activity.class);
-                    intent.putExtra("THOI_LUONG_CONG_VIEC", selectedThoiLuong);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("ThoiLuong",selectedThoiLuong);
+                    bundle.putString("tenDichVu",tenDichVu);
+                    intent.putExtra("data", bundle);
                     startActivity(intent);
                 } else {
                     Toast.makeText(DatAppActivity.this, "Vui lòng chọn thời lượng trước khi tiếp tục", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,8 @@
 package com.example.appgiupviec;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,10 @@ public class AccountFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView tvTenUser;
+
+    //private static final int CAP_NHAT_REQUEST_CODE = 1;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -65,8 +71,29 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        tvTenUser = view.findViewById(R.id.tvTenUser);// Liên kết với TextView tại đây
+        loadUserProfile();
+
+        edtChinhSuaHS = view.findViewById(R.id.edtChinhSuaHS);
+        edtChinhSuaHS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), CT_AccountActivity.class);
+               // startActivityForResult(i, CAP_NHAT_REQUEST_CODE);
+            }
+        });
+
+        return view;
     }
+
+    private void loadUserProfile() {
+        SharedPreferences preferences = getActivity().getSharedPreferences("user_profile", Context.MODE_PRIVATE);
+        String hoTen = preferences.getString("hoTen", "");
+
+        tvTenUser.setText(hoTen); // Hiển thị tên người dùng
+    }
+
 
     ConstraintLayout Favorite;
     TextView edtChinhSuaHS;
