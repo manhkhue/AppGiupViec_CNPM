@@ -200,9 +200,13 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
         listImages.add("https://intphcm.com/data/upload/banner-quang-cao.jpg");
     }
 
+    private void init(){
+
+    }
+
     @Override
     public void Start() {
-        Toast.makeText(getContext(),"Dang lay ve",Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

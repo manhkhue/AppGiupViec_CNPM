@@ -1,15 +1,27 @@
 package com.example.appgiupviec.Model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class User {
     private String tenUser;
     private String SoDienThoai;
     private String DiaChi;
-    private boolean GioiTinh;
-    public User(String tenUser, String soDienThoai, String diaChi, boolean gioiTinh) {
+    private String GioiTinh;
+
+    private String MaHK;
+    public User(JSONObject object)throws JSONException {
+        this.MaHK = object.getString("MaKH");
+        this.tenUser = object.getString("TenKH");
+        this.GioiTinh = object.getString("GioiTinh");
+        this.DiaChi = object.getString("DiaChi");
+        this.SoDienThoai = object.getString("SDT");
+    }
+    public User(String tenUser, String soDienThoai, String diaChi, String gioiTinh) {
         this.tenUser = tenUser;
-        SoDienThoai = soDienThoai;
-        DiaChi = diaChi;
-        GioiTinh = gioiTinh;
+        this.SoDienThoai = soDienThoai;
+        this.DiaChi = diaChi;
+        this.GioiTinh = gioiTinh;
     }
     public String getTenUser() {
         return tenUser;
@@ -35,11 +47,11 @@ public class User {
         DiaChi = diaChi;
     }
 
-    public boolean isGioiTinh() {
+    public String isGioiTinh() {
         return GioiTinh;
     }
 
-    public void setGioiTinh(boolean gioiTinh) {
+    public void setGioiTinh(String gioiTinh) {
         GioiTinh = gioiTinh;
     }
 

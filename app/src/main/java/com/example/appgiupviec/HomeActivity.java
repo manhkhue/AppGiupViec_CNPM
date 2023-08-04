@@ -1,6 +1,7 @@
 package com.example.appgiupviec;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,9 +19,14 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.BottomNavigation);
         replaceFragment(new HomeFragment());
         onCLick();
-
+        init();
     }
 
+    private void init(){
+        Bundle bundle = getIntent().getBundleExtra("status");
+        String tenUser = bundle.getString("TenUser");
+        Toast.makeText(this, tenUser, Toast.LENGTH_SHORT).show();
+    }
     private void onCLick (){
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
