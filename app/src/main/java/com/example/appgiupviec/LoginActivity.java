@@ -38,16 +38,13 @@ public class LoginActivity extends AppCompatActivity {
 
     static Boolean isLogin = false;
     public static User user;
-    private static final String url = "https://webdoctruyent5.000webhostapp.com/login.php";
+    private static final String url = "https://webdoctruyent5.000webhostapp.com/register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         AnhXa();
         setClick();
-
-
-
 
     }
 
@@ -94,8 +91,10 @@ public class LoginActivity extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                if(response!=null){
+                if(response.compareTo("[]\n\n")==0){
+                    Toast.makeText(LoginActivity.this, "Sai tên đăng nhập hoặc mật khẩu", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     try{
                         JSONArray jsonArray = new JSONArray(response);
                         JSONObject object = jsonArray.getJSONObject(0);
