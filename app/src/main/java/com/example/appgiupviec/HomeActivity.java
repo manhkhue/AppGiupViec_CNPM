@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void init(){
-        Toast.makeText(this, user.getTenUser(), Toast.LENGTH_SHORT).show();
+
     }
     private void onCLick (){
         bottomNavigationView.setOnItemSelectedListener(item -> {

@@ -50,9 +50,9 @@ public class CT_AccountActivity extends AppCompatActivity {
     }
 
     private void loadProfileInfo() {
-        tvTenUser.setText(user.getTenUser());
-        sdtHoSo.setText(user.getSoDienThoai());
-        diaChiHoSo.setText(user.getDiaChi());
+            tvTenUser.setText(user.getTenUser());
+            sdtHoSo.setText(user.getSoDienThoai());
+            diaChiHoSo.setText(user.getDiaChi());
     }
 
 

@@ -92,6 +92,8 @@ public class AccountFragment extends Fragment {
     private void loadUserProfile() {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_profile", Context.MODE_PRIVATE);
         tvTenUser.setText(user.getTenUser()); // Hiển thị tên người dùng
+
+
     }
 
 

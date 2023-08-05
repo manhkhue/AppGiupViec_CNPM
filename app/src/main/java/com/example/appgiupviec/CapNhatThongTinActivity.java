@@ -50,23 +50,14 @@ public class CapNhatThongTinActivity extends AppCompatActivity {
     }
 
     private void init(){
-        if(user==null)
-        {
-            edtHoTen.setText("");
-            edtDiaChi.setText("");
-        }
-        else {
             edtHoTen.setText(user.getTenUser());
             edtDiaChi.setText(user.getDiaChi());
-        }
-
     }
     private void onClick() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                update_user(user.getMaHK(),edtHoTen.getText().toString(),edtDiaChi.getText().toString());
-
+                update_user(user.getMaKH(),edtHoTen.getText().toString(),edtDiaChi.getText().toString(),user.getSoDienThoai());
             }
         });
 
@@ -77,7 +68,7 @@ public class CapNhatThongTinActivity extends AppCompatActivity {
             }
         });
     }
-    public void update_user(final String MaKH,final String TenUser, final String DiaChi) {
+    public void update_user(final String MaKH,final String TenUser, final String DiaChi,final String SDT) {
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -100,6 +91,7 @@ public class CapNhatThongTinActivity extends AppCompatActivity {
                 map.put("MaKH",MaKH);
                 map.put("TenKH", TenUser);
                 map.put("DiaChi", DiaChi);
+                map.put("SDT",SDT);
                 return map;
             }
         };

@@ -9,21 +9,24 @@ public class User {
     private String DiaChi;
     private String GioiTinh;
 
+    public User(){
+
+    }
     public String getGioiTinh() {
         return GioiTinh;
     }
 
-    public String getMaHK() {
-        return MaHK;
+    public String getMaKH() {
+        return MaKH;
     }
 
-    public void setMaHK(String maHK) {
-        MaHK = maHK;
+    public void setMaKH(String maKH) {
+        MaKH = maKH;
     }
 
-    private String MaHK;
+    private String MaKH;
     public User(JSONObject object)throws JSONException {
-        this.MaHK = object.getString("MaKH");
+        this.MaKH = object.getString("MaKH");
         this.tenUser = object.getString("TenKH");
         this.GioiTinh = object.getString("GioiTinh");
         this.DiaChi = object.getString("DiaChi");
