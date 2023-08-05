@@ -1,5 +1,7 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.user;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,45 +44,16 @@ public class CT_AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CT_AccountActivity.this, CapNhatThongTinActivity.class);
-                startActivityForResult(i, CAP_NHAT_REQUEST_CODE);
+                startActivity(i);
             }
         });
     }
 
     private void loadProfileInfo() {
-        SharedPreferences preferences = getSharedPreferences("user_profile", MODE_PRIVATE);
-        String hoTen = preferences.getString("hoTen", "");
-        String soDienThoai = preferences.getString("soDienThoai", "");
-        String diaChi = preferences.getString("diaChi", "");
-
-        tvTenUser.setText(hoTen);
-        sdtHoSo.setText(soDienThoai);
-        diaChiHoSo.setText(diaChi);
-
+        tvTenUser.setText(user.getTenUser());
+        sdtHoSo.setText(user.getSoDienThoai());
+        diaChiHoSo.setText(user.getDiaChi());
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAP_NHAT_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            String hoTen = data.getStringExtra("hoTen");
-            String soDienThoai = data.getStringExtra("soDienThoai");
-            String diaChi = data.getStringExtra("diaChi");
-
-            tvTenUser.setText(hoTen);
-            sdtHoSo.setText(soDienThoai);
-            diaChiHoSo.setText(diaChi);
-
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("hoTen", hoTen);
-            resultIntent.putExtra("soDienThoai", soDienThoai);
-            resultIntent.putExtra("diaChi", diaChi);
-
-            setResult(RESULT_OK, resultIntent);
-
-            finish();
-        }
-    }
 
 }

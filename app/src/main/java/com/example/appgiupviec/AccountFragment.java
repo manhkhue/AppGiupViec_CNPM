@@ -1,5 +1,7 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.user;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -89,18 +91,25 @@ public class AccountFragment extends Fragment {
 
     private void loadUserProfile() {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_profile", Context.MODE_PRIVATE);
-        String hoTen = preferences.getString("hoTen", "");
-
-        tvTenUser.setText(hoTen); // Hiển thị tên người dùng
+        tvTenUser.setText(user.getTenUser()); // Hiển thị tên người dùng
     }
 
 
-    ConstraintLayout Favorite;
+    ConstraintLayout Favorite,Logout;
     TextView edtChinhSuaHS;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Favorite = view.findViewById(R.id.Favorite);
+        AnhXa();
+        setClick();
+    }
+    private void AnhXa(){
+        Favorite = getView().findViewById(R.id.Favorite);
+        edtChinhSuaHS = getView().findViewById(R.id.edtChinhSuaHS);
+        Logout  = getView().findViewById(R.id.DangXuat);
+    }
+
+    private void setClick(){
         Favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,12 +117,20 @@ public class AccountFragment extends Fragment {
                 startActivity(i);
             }
         });
-        edtChinhSuaHS = view.findViewById(R.id.edtChinhSuaHS);
+
         edtChinhSuaHS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),CT_AccountActivity.class);
                 startActivity(i);
+            }
+        });
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }

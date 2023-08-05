@@ -1,5 +1,8 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.isLogin;
+import static com.example.appgiupviec.LoginActivity.user;
+
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -23,9 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void init(){
-        Bundle bundle = getIntent().getBundleExtra("status");
-        String tenUser = bundle.getString("TenUser");
-        Toast.makeText(this, tenUser, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, user.getTenUser(), Toast.LENGTH_SHORT).show();
     }
     private void onCLick (){
         bottomNavigationView.setOnItemSelectedListener(item -> {

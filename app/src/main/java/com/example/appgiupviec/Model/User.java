@@ -9,6 +9,18 @@ public class User {
     private String DiaChi;
     private String GioiTinh;
 
+    public String getGioiTinh() {
+        return GioiTinh;
+    }
+
+    public String getMaHK() {
+        return MaHK;
+    }
+
+    public void setMaHK(String maHK) {
+        MaHK = maHK;
+    }
+
     private String MaHK;
     public User(JSONObject object)throws JSONException {
         this.MaHK = object.getString("MaKH");

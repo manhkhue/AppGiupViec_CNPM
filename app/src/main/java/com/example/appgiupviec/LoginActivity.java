@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView tvDkiDn, tvQuenMK;
 
 
-    static Boolean isLogin = false;
+    public static Boolean isLogin = false;
     public static User user;
     private static final String url = "https://webdoctruyent5.000webhostapp.com/login.php";
     @Override
@@ -104,10 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     isLogin = true;
                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putBoolean("islogin",isLogin);
-                    bundle.putString("TenUser",user.getTenUser());
-                    intent.putExtra("status",bundle);
                     startActivity(intent);
                 }
             }
