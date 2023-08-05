@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     static Boolean isLogin = false;
     public static User user;
-    private static final String url = "https://webdoctruyent5.000webhostapp.com/register.php";
+    private static final String url = "https://webdoctruyent5.000webhostapp.com/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

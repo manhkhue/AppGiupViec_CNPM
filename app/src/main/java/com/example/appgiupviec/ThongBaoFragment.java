@@ -94,16 +94,21 @@ public class ThongBaoFragment extends Fragment {
         addThongBao();
 
         //Ánh Xạ
-        rcvThongBao = view.findViewById(R.id.rcvThongBao);
-        KhongThongBao = view.findViewById(R.id.KhongThongBao);
-        XoaThongBao = view.findViewById(R.id.XoaThongBao);
+
         //
 
+        AnhXa();
         //Set manager
         SetUp();
         //
         XuLy();
 
+    }
+
+    private void AnhXa(){
+        rcvThongBao = getView().findViewById(R.id.rcvThongBao);
+        KhongThongBao = getView().findViewById(R.id.KhongThongBao);
+        XoaThongBao = getView().findViewById(R.id.XoaThongBao);
     }
 
     @Override
