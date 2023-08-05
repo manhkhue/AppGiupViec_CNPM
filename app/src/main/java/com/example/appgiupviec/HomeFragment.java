@@ -149,7 +149,6 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
         RcvDichVu = view.findViewById(R.id.RcvDichVu);
         RcvDichVu.setLayoutManager(new GridLayoutManager(getContext(),4));
         arrDichVu = new ArrayList<>();
-        onClick();
         new ApiGetDSDichVu(this).execute();
     }
 
@@ -181,16 +180,6 @@ public class HomeFragment extends Fragment implements getDSDichVuFromApi {
             timerTask = null;
             position = layoutManager.findFirstCompletelyVisibleItemPosition();
         }
-    }
-
-    private void onClick(){
-//        RcvDichVu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getActivity(),DatAppActivity.class);
-//                startActivity(i);
-//            }
-//        });
     }
 
     private void getImages(){
