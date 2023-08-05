@@ -92,12 +92,10 @@ public class AccountFragment extends Fragment {
     private void loadUserProfile() {
         SharedPreferences preferences = getActivity().getSharedPreferences("user_profile", Context.MODE_PRIVATE);
         tvTenUser.setText(user.getTenUser()); // Hiển thị tên người dùng
-
-
     }
 
 
-    ConstraintLayout Favorite,Logout;
+    ConstraintLayout Favorite,Logout,TimKiem;
     TextView edtChinhSuaHS;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -109,6 +107,7 @@ public class AccountFragment extends Fragment {
         Favorite = getView().findViewById(R.id.Favorite);
         edtChinhSuaHS = getView().findViewById(R.id.edtChinhSuaHS);
         Logout  = getView().findViewById(R.id.DangXuat);
+        TimKiem = getView().findViewById(R.id.TimKiem);
     }
 
     private void setClick(){
