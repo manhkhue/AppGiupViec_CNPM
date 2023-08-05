@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp">
         <ImageView
+            android:id="@+id/imgAnhUuDai"
             android:src="@drawable/chandung"
             android:layout_width="match_parent"
             android:scaleType="fitXY"
@@ -17,16 +18,17 @@
 
         <ImageButton
             android:id="@+id/btnBack_UuDai"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="#00FFFFFF"
             android:scaleType="centerCrop"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/baseline_arrow_back_ios_24" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/baseline_keyboard_backspace_24" />
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/TieuDeUuDai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tiêu đề thông báo"
@@ -37,12 +39,11 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
+        android:id="@+id/NoiDungUuDai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nội dung thông báo"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginHorizontal="5dp"
         android:textSize="20dp"/>
-
-
 </LinearLayout>

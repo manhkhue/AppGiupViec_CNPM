@@ -1,6 +1,8 @@
 package Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appgiupviec.CT_ThongBaoActivity;
+import com.example.appgiupviec.CT_TinTucActivity;
 import com.example.appgiupviec.Model.ThongBao;
+import com.example.appgiupviec.Model.TinTuc;
 import com.example.appgiupviec.R;
 import com.example.appgiupviec.ThongBaoFragment;
 
@@ -28,7 +33,24 @@ public class ThongBaoAdapter extends RecyclerView.Adapter<ThongBaoAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_thongbao,null);
-        return new  ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = viewHolder.getAdapterPosition();
+                if(position!=RecyclerView.NO_POSITION){
+                    ThongBao thongBao = arrThongBao.get(position);
+                    Bundle bundle =new Bundle();
+                    bundle.putString("TieuDe", thongBao.getTieuDe());
+                    bundle.putString("NoiDung",thongBao.getNoiDung());
+                    bundle.putString("linkAnh",thongBao.getHinhAnh());
+                    Intent i = new Intent(view.getContext(), CT_ThongBaoActivity.class);
+                    i.putExtra("data",bundle);
+                    view.getContext().startActivity(i);
+                }
+            }
+        });
+        return viewHolder;
     }
 
     @Override

@@ -21,19 +21,27 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.appgiupviec.Model.ThongBao;
+import com.example.appgiupviec.Model.TinTuc;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.zip.Inflater;
 
 import Adapter.ThongBaoAdapter;
+import Adapter.TinTucAdapter;
+import api.ApiGetDSThongBao;
+import interfaces.getDSThongBaoFromApi;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ThongBaoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ThongBaoFragment extends Fragment {
+public class ThongBaoFragment extends Fragment implements getDSThongBaoFromApi {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,7 +75,7 @@ public class ThongBaoFragment extends Fragment {
     }
 
     RecyclerView rcvThongBao;
-    ArrayList<ThongBao> ThongBaos;
+    ArrayList<ThongBao> arrThongBao;
     ConstraintLayout KhongThongBao;
     ImageButton XoaThongBao;
     ThongBaoAdapter thongBaoAdapter;
@@ -91,18 +99,14 @@ public class ThongBaoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addThongBao();
-
         //Ánh Xạ
-
         //
-
         AnhXa();
         //Set manager
         SetUp();
         //
         XuLy();
-
+        new ApiGetDSThongBao(this).execute();
     }
 
     private void AnhXa(){
@@ -121,15 +125,13 @@ public class ThongBaoFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rcvThongBao.setLayoutManager(linearLayoutManager);
         rcvThongBao.addItemDecoration(new SpacesItemDecorations(20));
-        thongBaoAdapter = new ThongBaoAdapter(getContext(),ThongBaos);
-        rcvThongBao.setAdapter(thongBaoAdapter);
     }
 
     private void XuLy(){
         XoaThongBao.setOnClickListener(v -> {
-            ThongBaos.clear();
+            arrThongBao.clear();
             thongBaoAdapter.notifyDataSetChanged();
-            if(ThongBaos.isEmpty()){
+            if(arrThongBao.isEmpty()){
                 rcvThongBao.setVisibility(View.INVISIBLE);
                 KhongThongBao.setVisibility(View.VISIBLE);
             }
@@ -138,14 +140,29 @@ public class ThongBaoFragment extends Fragment {
     }
 
 
-    private void addThongBao(){
-        ThongBaos = new ArrayList<>();
-        for (int i=0;i<10;i++)
-        {
-            ThongBaos.add(new ThongBao("\uD83C\uDF89\uD83C\uDF89ƯU ĐÃI HẤP DẪN\uD83C\uDF89\uD83C\uDF89","","Áp dụng ưu đãi ngay để nhận ngay 50% giảm giá cho đơn hàng tiếp theo!\n" +
-                    "Thời gian áp dụng ưu đãi: từ ngày XX/XX/XXXX đến ngày XX/XX/XXXX.\n" +
-                    "Hãy nhanh tay đặt hàng để không bỏ lỡ cơ hội hấp dẫn này!\n" +
-                    "\uD83D\uDE80\uD83D\uDE80Áp dụng ngay và tiết kiệm cùng chúng tôi!\uD83D\uDE80\uD83D\uDE80"));
+    @Override
+    public void Start() {
+
+    }
+
+    @Override
+    public void End(String data) {
+        try {
+            arrThongBao = new ArrayList<>();
+            arrThongBao.clear();
+            JSONArray jsonArray = new JSONArray(data);
+            for(int i=0;i<jsonArray.length();i++){
+                JSONObject object = jsonArray.getJSONObject(i);
+                arrThongBao.add(new ThongBao(object));
+            }
+            thongBaoAdapter = new ThongBaoAdapter(getContext(),arrThongBao);
+            rcvThongBao.setAdapter(thongBaoAdapter);
         }
+        catch (JSONException e){
+        }
+    }
+
+    @Override
+    public void Error() {
     }
 }
