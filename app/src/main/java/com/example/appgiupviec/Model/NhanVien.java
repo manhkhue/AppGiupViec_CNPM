@@ -18,6 +18,7 @@ public class NhanVien {
         MaNGV = object.getString("MaNGV");
         Ten = object.getString("TenNGV");
         SDT = object.getString("SDT");
+        GioiTinh = object.getString("GioiTinh");
         HinhAnh = object.getString("HinhAnh");
         TenDG = object.getString("TenDG");
     }

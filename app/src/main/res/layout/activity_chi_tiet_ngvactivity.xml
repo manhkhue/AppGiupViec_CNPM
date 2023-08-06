@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#E3DEBF"
+    tools:context=".ChiTietNGVActivity">
+
+    <ImageButton
+        android:id="@+id/btnBack_CTNGV"
+        android:src="@drawable/baseline_keyboard_backspace_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:background="#00FFFFFF"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Thông tin người giúp việc"
+        android:layout_toRightOf="@id/btnBack_CTNGV"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civAnh"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textSize="24sp"
+        android:layout_below="@id/civAnh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+
+    <TextView
+        android:id="@+id/tvGioiTinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123 Main Street, City"
+        android:textSize="18sp"
+        android:layout_below="@id/tvName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+
+    <TextView
+        android:id="@+id/tvSDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone: (123) 456-7890"
+        android:textSize="18sp"
+        android:layout_below="@id/tvGioiTinh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
+
+
+
+
+</RelativeLayout>

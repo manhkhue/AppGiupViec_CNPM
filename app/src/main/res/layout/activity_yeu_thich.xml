@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3DEBF"
     tools:context=".YeuThichActivity">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/constraintYeuThich"
@@ -36,7 +37,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         android:text="Người làm yêu thích"
-        android:textSize="20dp"
+        android:textSize="25dp"
+        android:textColor="#000"
         android:textStyle="bold" />
 </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
