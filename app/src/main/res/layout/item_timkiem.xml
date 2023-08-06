@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="10dp">
+<ImageView
+    android:id="@+id/anhNGV"
+    android:src="@drawable/chandung"
+    android:layout_width="210dp"
+    android:layout_height="200dp"
+    android:scaleType="fitXY"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvTenNGV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ten NGV"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/tvDanhGia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Đánh giá"
+            android:textSize="18sp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/tvSDT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="SDT"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+</LinearLayout>

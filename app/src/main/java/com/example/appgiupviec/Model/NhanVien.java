@@ -1,15 +1,45 @@
 package com.example.appgiupviec.Model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class NhanVien {
     private String HinhAnh;
     private String Ten;
-    private String Diachi;
-    private String SDT;
-    private String GioiTinh;
 
+    private String GioiTinh;
+    private String SDT;
+
+    private String MaNGV;
+    private String TenDG;
+
+
+    public NhanVien(JSONObject object) throws JSONException{
+        MaNGV = object.getString("MaNGV");
+        Ten = object.getString("TenNGV");
+        SDT = object.getString("SDT");
+        HinhAnh = object.getString("HinhAnh");
+        TenDG = object.getString("TenDG");
+    }
     public NhanVien(String hinhAnh, String ten) {
         HinhAnh = hinhAnh;
         Ten = ten;
+    }
+
+    public String getTenDG() {
+        return TenDG;
+    }
+
+    public void setTenDG(String tenDG) {
+        TenDG = tenDG;
+    }
+
+    public String getMaNGV() {
+        return MaNGV;
+    }
+
+    public void setMaNGV(String maNGV) {
+        MaNGV = maNGV;
     }
 
     public String getHinhAnh() {
@@ -28,13 +58,6 @@ public class NhanVien {
         Ten = ten;
     }
 
-    public String getDiachi() {
-        return Diachi;
-    }
-
-    public void setDiachi(String diachi) {
-        Diachi = diachi;
-    }
 
     public String getSDT() {
         return SDT;

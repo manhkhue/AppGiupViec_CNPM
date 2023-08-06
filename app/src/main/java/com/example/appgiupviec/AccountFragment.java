@@ -134,5 +134,12 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        TimKiem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),TimKiemNGVActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
