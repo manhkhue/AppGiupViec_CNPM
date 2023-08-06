@@ -1,5 +1,7 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.user;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appgiupviec.Model.ThoiLuong;
@@ -23,6 +26,7 @@ public class DatAppActivity extends AppCompatActivity {
     private ArrayList<ThoiLuong> thoiLuongList;
     private String selectedThoiLuong;
     private String tenDichVu;
+    TextView tvDiaChi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,13 @@ public class DatAppActivity extends AppCompatActivity {
         thoiLuongList.add(new ThoiLuong("1 giờ: 1 phòng(30m2)",DonGia*1 + " VND"));
         thoiLuongList.add(new ThoiLuong("2 giờ: 2 phòng(50m2)",DonGia*2 + " VND"));
         thoiLuongList.add(new ThoiLuong("3 giờ: 3 phòng(70m2)",DonGia*3 + " VND"));
+        tvDiaChi.setText(user.getDiaChi());
     }
 
     private void AnhXa(){
         imgBack = findViewById(R.id.img_quaylai);
         recyclerViewDienTich = findViewById(R.id.recyclerViewDienTich);
+        tvDiaChi=findViewById(R.id.TVDiaChi);
     }
 
     private void setUP(){
