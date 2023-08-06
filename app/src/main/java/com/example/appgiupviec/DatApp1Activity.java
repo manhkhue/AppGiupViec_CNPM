@@ -1,5 +1,7 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.user;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -12,6 +14,7 @@ import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -26,7 +29,7 @@ public class DatApp1Activity extends AppCompatActivity {
     private Button Day;
     private Button Hours;
     private EditText ghiChu11;
-
+    TextView tvDiaChi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +73,7 @@ public class DatApp1Activity extends AppCompatActivity {
     }
 
     private void Init(){
-
+        tvDiaChi.setText(user.getDiaChi());
     }
 
     private void AnhXa(){
@@ -79,6 +82,7 @@ public class DatApp1Activity extends AppCompatActivity {
         Day = findViewById(R.id.Day);
         Hours = findViewById(R.id.Hours);
         ghiChu11 = findViewById(R.id.GhiChu11);
+        tvDiaChi = findViewById(R.id.TVDiaChi);
     }
 
     private void setClick(){
