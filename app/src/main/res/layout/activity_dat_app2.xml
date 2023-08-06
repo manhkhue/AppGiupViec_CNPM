@@ -6,22 +6,24 @@
 
     <ImageView
         android:id="@+id/img_BackDH2"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/baseline_keyboard_backspace_24"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvThongTinCongViec"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:text="Thông tin công việc"
-        android:textSize="18sp"
+        android:textSize="25sp"
+        android:textColor="#000"
         android:textStyle="bold"
-        android:layout_below="@id/img_BackDH2"
+        android:layout_toRightOf="@id/img_BackDH2"
+
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
@@ -30,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tên công việc:"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/tvThongTinCongViec"
         android:layout_marginTop="20dp"
@@ -41,22 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thời lượng đã chọn:"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/tvTenCongViec"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvThoiLuongValue"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_alignRight="@id/tvThoiLuongTitle"-->
-<!--        android:layout_below="@id/tvThoiLuongTitle"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginStart="16dp" />-->
 
     <!-- Bảng thông tin ngày và giờ làm việc đã chọn từ DatApp1Activity -->
     <TextView
@@ -64,42 +55,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ngày làm việc:"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/tvThoiLuongTitle"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvNgayLamViecValue"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_below="@id/tvNgayLamViecTitle"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginStart="16dp" />-->
+
 
     <TextView
         android:id="@+id/tvGioLamViecTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Giờ làm việc:"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/tvNgayLamViecTitle"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvGioLamViecValue"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_below="@id/tvGioLamViecTitle"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginStart="16dp" />-->
+    <TextView
+        android:id="@+id/tvDiaChiTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Địa chỉ:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/tvGioLamViecTitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
 
     <!-- Bảng thông tin Ghi chú -->
     <TextView
@@ -107,21 +91,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ghi chú:"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@id/tvGioLamViecTitle"
+        android:layout_below="@id/tvDiaChiTitle"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvGhiChuValue"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_below="@id/tvGhiChuTitle"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginStart="16dp" />-->
+
 
     <!-- Nút Đăng việc -->
     <Button

@@ -36,7 +36,7 @@ public class DatApp1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dat_app1);
         AnhXa();
         setClick();
-
+        Init();
 
 
     }
@@ -82,7 +82,7 @@ public class DatApp1Activity extends AppCompatActivity {
         Day = findViewById(R.id.Day);
         Hours = findViewById(R.id.Hours);
         ghiChu11 = findViewById(R.id.GhiChu11);
-        tvDiaChi = findViewById(R.id.TVDiaChi);
+        tvDiaChi = findViewById(R.id.TVDiaChi1);
     }
 
     private void setClick(){

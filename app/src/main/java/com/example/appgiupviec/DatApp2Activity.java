@@ -1,5 +1,7 @@
 package com.example.appgiupviec;
 
+import static com.example.appgiupviec.LoginActivity.user;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,7 +16,7 @@ public class DatApp2Activity extends AppCompatActivity {
 
     private ImageView imgBack;
     private Button btnDangViec;
-    private TextView tvThoiLuongValue, tvNgayLamViecValue, tvGioLamViecValue, tvGhiChuValue, tvTenDichVu;
+    private TextView tvThoiLuongValue, tvNgayLamViecValue, tvGioLamViecValue, tvGhiChuValue, tvTenDichVu, tvDiaChi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class DatApp2Activity extends AppCompatActivity {
         tvGioLamViecValue = findViewById(R.id.tvGioLamViecTitle);
         tvGhiChuValue = findViewById(R.id.tvGhiChuTitle);
         tvTenDichVu = findViewById(R.id.tvTenCongViec);
+        tvDiaChi = findViewById(R.id.tvDiaChiTitle);
         Bundle bundle = getIntent().getBundleExtra("data");
         String tenDichVu = bundle.getString("TenDichVu");
         String selectedThoiLuong = bundle.getString("ThoiLuong");
@@ -39,6 +42,7 @@ public class DatApp2Activity extends AppCompatActivity {
         tvNgayLamViecValue.setText("Ngày làm việc: "+ngayLamViec);
         tvGioLamViecValue.setText("Giờ làm việc: "+gioLamViec);
         tvGhiChuValue.setText("Ghi chú: "+ ghiChu);
+        tvDiaChi.setText("Địa chỉ: "+user.getDiaChi());
 
         btnDangViec.setOnClickListener(new View.OnClickListener() {
             @Override
