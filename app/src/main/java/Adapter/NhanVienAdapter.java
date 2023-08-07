@@ -41,6 +41,7 @@ public class NhanVienAdapter extends RecyclerView.Adapter<NhanVienAdapter.ViewHo
                 if(position!=RecyclerView.NO_POSITION){
                     NhanVien nhanVien = arrNhanVien.get(position);
                     Bundle bundle =new Bundle();
+                    bundle.putString("MaNGV",nhanVien.getMaNGV());
                     bundle.putString("TenNGV", nhanVien.getTen());
                     bundle.putString("GioiTinh",nhanVien.getGioiTinh());
                     bundle.putString("SDT",nhanVien.getSDT());

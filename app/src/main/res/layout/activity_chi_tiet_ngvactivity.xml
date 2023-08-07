@@ -27,6 +27,16 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="#000"/>
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:layout_toRightOf="@id/civAnh"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/baseline_favorite_border_24" />
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civAnh"
         android:layout_width="120dp"

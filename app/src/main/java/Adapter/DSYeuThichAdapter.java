@@ -40,6 +40,7 @@ public class DSYeuThichAdapter extends RecyclerView.Adapter<DSYeuThichAdapter.Vi
                 if(position!=RecyclerView.NO_POSITION){
                     NhanVien nhanVien = arrYeuThich.get(position);
                     Bundle bundle =new Bundle();
+                    bundle.putString("MaNGV",nhanVien.getMaNGV());
                     bundle.putString("TenNGV", nhanVien.getTen());
                     bundle.putString("GioiTinh",nhanVien.getGioiTinh());
                     bundle.putString("SDT",nhanVien.getSDT());

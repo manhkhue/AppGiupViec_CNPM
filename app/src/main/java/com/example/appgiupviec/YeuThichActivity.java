@@ -34,7 +34,7 @@ import java.util.Map;
 import Adapter.DSYeuThichAdapter;
 
 public class YeuThichActivity extends AppCompatActivity {
-    ArrayList<NhanVien> arrNhanVienYeuThich;
+    public static ArrayList<NhanVien> arrNhanVienYeuThich;
     RecyclerView rcvYeuThich;
     DSYeuThichAdapter YeuThichAdapter;
     ImageButton btnBack;
@@ -57,6 +57,7 @@ public class YeuThichActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
     }
 //    private void addDSyeuThich(){
